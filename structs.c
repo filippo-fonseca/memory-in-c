@@ -1,20 +1,20 @@
 #include <stdio.h>
 
-struct Coordinate
+typedef struct Coordinate
 {
     int x;
     int y;
     int z;
-};
+} coordinate_t;
 
-struct Coordinate new_coord(int x, int y, int z)
+coordinate_t new_coord(int x, int y, int z)
 {
-    struct Coordinate c = {x, y, z};
+    coordinate_t c = {x, y, z};
 
     return c;
 };
 
-struct Coordinate scale_coordinate(struct Coordinate c, int scale_factor)
+coordinate_t scale_coordinate(coordinate_t c, int scale_factor)
 {
     c.x *= scale_factor;
     c.y *= scale_factor;
@@ -25,8 +25,8 @@ struct Coordinate scale_coordinate(struct Coordinate c, int scale_factor)
 int main()
 {
     printf("Hello, World!\n");
-    struct Coordinate the_call = new_coord(2, 3, 5);
-    struct Coordinate the_scaled_call = scale_coordinate(the_call, 3);
+    coordinate_t the_call = new_coord(2, 3, 5);
+    coordinate_t the_scaled_call = scale_coordinate(the_call, 3);
 
     printf("the_call: x=%d, y=%d, z=%d\n", the_call.x, the_call.y, the_call.z);
     printf("the_scaled_call: x=%d, y=%d, z=%d\n", the_scaled_call.x, the_scaled_call.y, the_scaled_call.z);
